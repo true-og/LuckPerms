@@ -94,6 +94,10 @@ public class BukkitPlatformListener implements Listener {
 
     @EventHandler
     public void onPluginEnable(PluginEnableEvent e) {
+        if (!this.plugin.getConfiguration().get(ConfigKeys.VAULT_ENABLED)) {
+            return;
+        }
+
         Plugin p = e.getPlugin();
         boolean shouldHook = p.getName().equalsIgnoreCase("Vault") ||
                 (PLUGIN_DESCRIPTION_FILE_PROVIDES_SUPPORTED && p.getDescription().getProvides().contains("Vault"));

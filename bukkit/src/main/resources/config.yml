@@ -627,7 +627,18 @@ commands-allow-op: true
 
 # +----------------------------------------------------------------------------------------------+ #
 # | Vault integration settings                                                                   | #
+# |                                                                                              | #
+# | Disabled by default (vault-enabled: false). The remaining vault-* settings below only take   | #
+# | effect when vault-enabled is set to true.                                                    | #
 # +----------------------------------------------------------------------------------------------+ #
+
+# If the Vault API bridge should be registered.
+#
+# - When false (default), LuckPerms will not hook into Vault at all. Vault-dependent plugins will
+#   fall back to SuperPerms and will not see LuckPerms groups, prefixes, or meta.
+# - When true, LuckPerms will register Vault permission and chat providers if the Vault plugin is
+#   installed. Required for any plugin that reads groups/prefix/suffix via the Vault API.
+vault-enabled: false
 
 # If Vault lookups for offline players on the main server thread should be enabled.
 #

@@ -494,6 +494,12 @@ public final class ConfigKeys {
     public static final ConfigKey<Boolean> COMMANDS_RATE_LIMIT = booleanKey("commands-rate-limit", true);
 
     /**
+     * If the Vault API bridge should be registered on platforms that support it (Bukkit).
+     * Disabled by default; the remaining vault-* keys below only take effect when this is true.
+     */
+    public static final ConfigKey<Boolean> VAULT_ENABLED = booleanKey("vault-enabled", false);
+
+    /**
      * If Vault lookups for offline players on the main server thread should be enabled
      */
     public static final ConfigKey<Boolean> VAULT_UNSAFE_LOOKUPS = booleanKey("vault-unsafe-lookups", false);

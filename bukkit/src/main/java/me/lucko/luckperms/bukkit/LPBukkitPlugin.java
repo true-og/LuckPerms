@@ -221,10 +221,12 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
          * - https://hub.spigotmc.org/jira/browse/SPIGOT-5546
          * - https://github.com/PaperMC/Paper/pull/3509
          */
-        PluginManagerUtil.injectDependency(this.bootstrap.getServer().getPluginManager(), this.bootstrap.getLoader().getName(), "Vault");
+        if (getConfiguration().get(ConfigKeys.VAULT_ENABLED)) {
+            PluginManagerUtil.injectDependency(this.bootstrap.getServer().getPluginManager(), this.bootstrap.getLoader().getName(), "Vault");
 
-        // Provide vault support
-        tryVaultHook(false);
+            // Provide vault support
+            tryVaultHook(false);
+        }
     }
 
     @Override
@@ -235,6 +237,10 @@ public class LPBukkitPlugin extends AbstractLuckPermsPlugin {
     public void tryVaultHook(boolean force) {
         if (this.vaultHookManager != null) {
             return; // already hooked
+        }
+
+        if (!getConfiguration().get(ConfigKeys.VAULT_ENABLED)) {
+            return; // disabled in config
         }
 
         try {
