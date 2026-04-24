@@ -30,7 +30,7 @@ kotlin { jvmToolchain(17) }
 /* ----------------------------- Metadata ------------------------------ */
 group = "me.lucko.luckperms" // Declare bundle identifier.
 
-version = "5.5-SNAPSHOT" // Declare plugin version (will be in .jar).
+version = "5.5.0-SNAPSHOT" // Declare plugin version (will be in .jar).
 
 val apiVersion = "1.19" // Declare minecraft server target version.
 
